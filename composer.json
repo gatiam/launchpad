@@ -1,0 +1,92 @@
+{
+    "name": "gatiam/launchpad",
+    "description": "Project template for Drupal 8 projects with a relocated document root",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://www.drupal.org/project/drupal",
+    "support": {
+        "docs": "https://www.drupal.org/docs/user_guide/en/index.html"
+    },
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        "assets": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    },
+    "require": {
+        "composer/installers": "^1.2",
+        "cweagans/composer-patches": "^1.6",
+        "drupal/admin_toolbar": "^2.2",
+        "drupal/adminimal_theme": "^1.5",
+        "drupal/better_exposed_filters": "^5.0@beta",
+        "drupal/bootstrap": "^3.23",
+        "drupal/config_ignore": "^2.2",
+        "drupal/core-composer-scaffold": "^8.8",
+        "drupal/core-project-message": "^8.8",
+        "drupal/core-recommended": "^8.8",
+        "drupal/devel_entity_updates": "^2.0",
+        "drupal/entity_form_field_label": "^1.4",
+        "drupal/eu_cookie_compliance": "^1.9",
+        "drupal/field_group": "^3.1",
+        "drupal/fixed_block_content": "^1.1",
+        "drupal/google_analytics": "^3.0",
+        "drupal/honeypot": "^2.0",
+        "drupal/jquery_ui_touch_punch": "^1.0",
+        "drupal/media_entity_browser": "^2.0",
+        "drupal/metatag": "^1.13",
+        "drupal/paragraphs": "^1.12",
+        "drupal/pathauto": "^1.8",
+        "drupal/ratio_crop": "^1.0",
+        "drupal/recaptcha": "^2.5",
+        "drupal/simple_sitemap": "^3.6",
+        "drupal/twig_tweak": "^2.6",
+        "drupal/views_bootstrap": "^4.3",
+        "drupal/views_show_more": "^1.0",
+        "drupal/webform": "^5.16",
+        "drush/drush": "^10.2",
+        "npm-asset/jquery-ui-touch-punch": "^0.2.3",
+        "oomphinc/composer-installers-extender": "^1.1"
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "docroot/"
+            }
+        },
+        "installer-types": ["library", "bower-asset", "npm-asset"],
+        "installer-paths": {
+            "docroot/core": ["type:drupal-core"],
+            "docroot/libraries/{$name}": ["type:drupal-library", "type:bower-asset", "type:npm-asset"],
+            "docroot/modules/contrib/{$name}": ["type:drupal-module"],
+            "docroot/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "docroot/themes/contrib/{$name}": ["type:drupal-theme"],
+            "drush/Commands/contrib/{$name}": ["type:drupal-drush"],
+            "docroot/modules/custom/{$name}": ["type:drupal-custom-module"],
+            "docroot/themes/custom/{$name}": ["type:drupal-custom-theme"]
+        },
+        "enable-patching": true,
+        "patches": {
+            "drupal/jquery_ui_touch_punch": {
+                "Adding library to jquery ui touchpunch": "https://www.drupal.org/files/issues/2020-08-05/3159222-11.patch"
+            },
+            "drupal/eu_cookie_compliance": {
+                "fix value not save": "https://www.drupal.org/files/issues/2020-05-14/more-info-button-not-saved-3134169-5.patch"
+            }
+        }
+    },
+    "require-dev": {
+        "drupal/kint": "^2.1"
+    }
+}
