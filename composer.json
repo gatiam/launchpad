@@ -15,6 +15,19 @@
         "assets": {
             "type": "composer",
             "url": "https://asset-packagist.org"
+        },
+        "sandbox": {
+            "type": "package",
+            "package": {
+                "name": "graphicalliance/launchpad",
+                "version": "1.0.0",
+                "type": "drupal-profile",
+                "source": {
+                    "url": "https://git.drupalcode.org/sandbox/bububang-3168445.git",
+                    "type": "git",
+                    "reference": "develop"
+                }
+            }
         }
     },
     "require": {
@@ -49,7 +62,8 @@
         "drupal/webform": "^5.16",
         "drush/drush": "^10.2",
         "npm-asset/jquery-ui-touch-punch": "^0.2.3",
-        "oomphinc/composer-installers-extender": "^1.1"
+        "oomphinc/composer-installers-extender": "^1.1",
+        "graphicalliance/launchpad": "~1.0"
     },
     "conflict": {
         "drupal/drupal": "*"
